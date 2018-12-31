@@ -4,7 +4,12 @@
 	{% for x in posts  %}
 	<article class="media content-section">
 	  <div class="media-body">
-	    <h2><a class="article-title" href="#">{{ x.title }}</a></h2>
+	  	<div class="article-metadata">
+	  		<h6><a class="article-title" href="#">{{ x.author }}</a></h6>
+	  		<small class="text-muted">{{x.date_posted | date:"F d, Y"}}</small>
+	  	</div>
+	  		<h1><a class="article-title" href="#">{{ x.title }}</a></h1>
+	    
 	    <p class="article-content">{{ x.content }}</p>
 	  </div>
 	</article>

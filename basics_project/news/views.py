@@ -1,18 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 # Create your views here.
 
 posts=[
 	{
-		'name':'Aaron Ramsey',
+		'author':'David Ornstein',
 		'title':'Ramsey to leave Arsenal on free',
-		'content':'Arsenal star Aaron Ramsey set to join PSG in a January move for about 10-15 million pounds'
+		'content':'Arsenal star Aaron Ramsey set to join PSG in a January move for about 10-15 million pounds',
+		'date_posted':'12/20/2018'
 
 	},
 	{
-		'name':'Chris Smalling',
+		'author':'Guilleme Balague',
 		'title':'Chris Smalling signs new contact',
-		'content':'Utd star sign new 150k pounds per week deal under new coach'
+		'content':'Utd star sign new 150k pounds per week deal under new coach',
+		'date_posted':'12/15/2018'
 
 	}
 
@@ -20,7 +23,7 @@ posts=[
 
 def home(request):
     
-    context={'posts':posts}
+    context={'posts':Post.objects.all()}
     return render(request,'news/home.html',context)
 
 
